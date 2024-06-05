@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
@@ -79,14 +80,16 @@ WSGI_APPLICATION = 'socialNetworkingProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'social_nwk_db',
-        'HOST': 'localhost',
-        'PORT': 3306,
-        'USER':'root',
-        'PASSWORD':'root',
+        'NAME': os.environ.get('DATABASE_NAME', 'social_nwk_db'),
+        'USER': os.environ.get('DATABASE_USER', 'root'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'root'),
+        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
+        'PORT': os.environ.get('DATABASE_PORT', 3306),
     }
 }
 
@@ -145,8 +148,17 @@ JWT_AUTH = {
 
 from datetime import timedelta
 
-REST_FRAME_SIMPLEJWT = {
+SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=300),  # Adjust as needed
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # Adjust as needed
     'ROTATE_REFRESH_TOKENS': True,  # Blacklist old tokens on refresh
+    'BLACKLIST_AFTER_ROTATION': True,  # Ensure tokens are blacklisted after rotation
+    'ALGORITHM': 'HS256',
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': 'token_type',
+    'JTI_CLAIM': 'jti',
 }

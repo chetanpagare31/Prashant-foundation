@@ -9,6 +9,7 @@ urlpatterns = [
     path('users/', UserView.as_view(), name='users'),
     path('signup/', RegisterUserView.as_view(), name='signup'),
     path('signin/', LoginUserView.as_view(), name='signin'),
-    path('refresh/',TokenRefreshView.as_view(), name='refresh-token')
+    path('refresh/',TokenRefreshView.as_view(), name='refresh-token'),
+    path('revoke/', RevokeTokenView.as_view(), name='revoke-token'),
     
 ]

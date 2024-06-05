@@ -1,0 +1,15 @@
+env/
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+.pytest_cache
+.pytype
+.mypy_cache
+.coverage
+coverage.xml
+*.log
+*.sqlite3
+db.sqlite3
+.DS_Store
+*.egg-info/
