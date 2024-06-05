@@ -33,7 +33,7 @@ To run this project using Docker, follow these steps:
 
 ## Curl Commands to Test the Endpoints
 
-    Run below commands in Git bash on path of respective working directory 
+Run below commands in Git bash on path of respective working directory 
 
 ## SignUp: Sign up (creation of user) using email and password
 
@@ -50,20 +50,20 @@ Sample Response:
 
 
 ## SignIn: a.Authentication of user credentials 
-                b. A token is returned as response preferably JWT
+b. A token is returned as response preferably JWT
 
     $ curl --location 'http://localhost:8000/api/signin/' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-        "username": "Raj",
         "email": "Raj@gmail.com",
         "password": "Raj@123"
     }'
 
 Sample Response: 
-% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   623  100   540  100    83    662    101 --:--:-- --:--:-- --:--:--   764{"refresh":"your_refresh_token","access":"your_access_token","user":{"id":8,"username":"Raj","email":"raj@gmail.com"}}
+100   623  100   540  100    83    662    101 --:--:-- --:--:-- --:--:--   764{"refresh":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxNzU4NDIxNCwiaWF0IjoxNzE3NDk3ODE0LCJqdGkiOiJiNGUyN2I0OTdiYzE0MDc2YjBiNjg2NTBlYjQ0YmY5NSIsInVzZXJfaWQiOjh9.RT9Pch0wjhsRs2pNos5nDG3hq8in41ofieiabi5Mbwo","access":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3NDk4MTE0LCJpYXQiOjE3MTc0OTc4MTQsImp0aSI6Ijc4Njk2YzNhNjQxMzRhNjg4NzY1ZTdmODhlNGI0MmVjIiwidXNlcl9pZCI6OH0.vtTIY9Jv444KCPOejCvDmiRi8S1tBIEjPCZGCjfhfb4","user":{"id":8,"username":"Raj","email":"raj@gmail.com"}}
+
 
 
 
@@ -109,7 +109,8 @@ Sample Response:
 Sample Response:
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   491  100   241  100   250   1072   1112 --:--:-- --:--:-- --:--:--  2191{"access":"your_access_token"}
+100   491  100   241  100   250   1072   1112 --:--:-- --:--:-- --:--:--  2191{"access":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3NDk4ODIzLCJpYXQiOjE3MTc0OTgxMDYsImp0aSI6IjEwMWFhOWRhZTRlNDQxMWE5ZGZmODM0NzgwMDIzMWIyIiwidXNlcl9pZCI6OH0.PubupVFme1OtgMTkH1YtGL0UtLYfVnP_T4LKnnuIMNg"}
+
 
 
 
@@ -129,29 +130,29 @@ DATABASE_PORT: The MySQL port (default: 3306)
 When running the project locally, these can be set in your environment or will default to the values specified above.
 
 ## Project Structure
-
-Prashant-foundation/
-├── Dockerfile
-├── docker-compose.yml
-├── manage.py
-├── .dockerignore
-├── socialNetworkingProject/
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── accounts/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── migrations/
-│   ├── models.py
-│   ├── serializers.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── requirements.txt
-└── README.md
+        
+        Prashant-foundation/
+        ├── Dockerfile
+        ├── docker-compose.yml
+        ├── manage.py
+        ├── .dockerignore
+        ├── socialNetworkingProject/
+        │   ├── __init__.py
+        │   ├── settings.py
+        │   ├── urls.py
+        │   └── wsgi.py
+        ├── accounts/
+        │   ├── __init__.py
+        │   ├── admin.py
+        │   ├── apps.py
+        │   ├── migrations/
+        │   ├── models.py
+        │   ├── serializers.py
+        │   ├── tests.py
+        │   ├── urls.py
+        │   └── views.py
+        ├── requirements.txt
+        └── README.md
 
 ## Troubleshooting
 
